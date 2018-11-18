@@ -1,0 +1,17 @@
+﻿@model MusicAlbumSite.Models.Album
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    var className = Model.NumViews > 0 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Title</h2>
+<h3>By @Model.Artist</h3>
+
+@if (Model.NumViews == 0 || Model.NumViews == 1)
+{
+    <text>No one has viewed this album before</text>
+}
+

@@ -23,7 +23,7 @@ namespace MusicAlbumSite
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-slate.min.css",
                       "~/Content/site.css"));
         }
     }
