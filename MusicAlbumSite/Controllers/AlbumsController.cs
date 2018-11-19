@@ -10,18 +10,14 @@ namespace MusicAlbumSite.Controllers
     public class AlbumsController : Controller
     {
         // GET: Albums
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ActionResult Index()
         {
-            if (!pageIndex.HasValue)
+            var model = new List<Album>
             {
-                pageIndex = 1;
+                new Album() { Id = 1, Title = "The Wall", Artist = new Artist() { Name = "Pink Floyd"}},
+                new Album() { Id = 2, Title = "The Lonesome Crowded West", Artist = new Artist() {Name = "Modest Mouse"}}
             };
-            if (String.IsNullOrWhiteSpace(sortBy))
-            {
-                sortBy = "Name";
-            };
-
-            return Content(String.Format($"pageIndex={pageIndex}&sortBy={sortBy}"));
+            return View(model);
         }
 
         public ViewResult Random()
@@ -29,7 +25,7 @@ namespace MusicAlbumSite.Controllers
             var album = new Album()
             {
                 Title = "The Wall",
-                Artist = "Pink Floyd"
+                Artist = new Artist { Name = "Pink Floyd", YearCreated = 1960 }
             };
             return View(album);
         }
